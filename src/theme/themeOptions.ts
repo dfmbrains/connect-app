@@ -23,7 +23,7 @@ export const themeOptions = (theme: Theme): ThemeOptions => {
           '*': { boxSizing: 'border-box', padding: 0, margin: 0 },
           body: {
             height: '100%',
-            fontFamily: "'Roboto', Helvetica, Arial, sans-serif",
+            fontFamily: '\'Roboto\', Helvetica, Arial, sans-serif',
             background: '#F5F5F5',
           },
           a: { color: 'inherit', textDecoration: 'none', display: 'flex' },
@@ -46,6 +46,20 @@ export const themeOptions = (theme: Theme): ThemeOptions => {
           },
           option: {
             fontSize: '14px',
+          },
+        },
+      },
+      MuiFormHelperText: {
+        styleOverrides: {
+          root: {
+            marginTop: '2px',
+          },
+        },
+      },
+      MuiTab: {
+        styleOverrides: {
+          root: {
+            minHeight: '42px',
           },
         },
       },

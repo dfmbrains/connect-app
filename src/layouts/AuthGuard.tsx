@@ -13,7 +13,7 @@ const AuthGuard = () => {
       {isAuthenticated ? (
         <Outlet />
       ) : (
-        <Navigate replace to="/auth/signin" state={{ from: pathname }} />
+        <Navigate replace to="/auth" state={{ from: pathname }} />
       )}
     </>
   );

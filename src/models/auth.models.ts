@@ -1,6 +1,13 @@
 export interface ILogin {
-  username: '';
-  password: '';
+  username: string;
+  password: string;
+}
+
+export interface ISignUp {
+  username: string;
+  password: string;
+  firstName: string;
+  lastName: string;
 }
 
 export interface IAuthCredentials {

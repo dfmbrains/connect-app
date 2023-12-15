@@ -1,9 +1,9 @@
 import { useSetRecoilState } from 'recoil';
 import { useSnackbar } from 'notistack';
-import { IAuthCredentials, ILogin } from 'models/auth.models';
+import { IAuthCredentials, ILogin, ISignUp } from 'models/auth.models';
 import { authCredentialsState, isAuthenticatedState } from 'store/auth.states';
 import { COOKIES_AUTH_CREDENTIALS, removeCookie, setCookie } from 'services/cookies.service';
-import { authToken, refreshToken } from 'api/identity/auth.api';
+import { authToken, ISignupUserResponse, refreshToken, signupUser } from 'api/identity/auth.api';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import { IServerStatus } from 'models/server.models';
@@ -43,7 +43,6 @@ const useAuth = () => {
     setIsAuthenticated(false);
     removeCookie(COOKIES_AUTH_CREDENTIALS);
 
-    console.log(variant);
     if (variant) {
       enqueueSnackbar(
         variant === 'success' ? 'Logged out' : 'Session expired',
@@ -74,7 +73,15 @@ const useAuth = () => {
     }
   };
 
-  return { logout, login, refresh };
+  const signup = async (values: ISignUp): Promise<ISignupUserResponse | undefined> => {
+    try {
+      return await signupUser(values);
+    } catch (e) {
+      handleAuthError(e);
+    }
+  };
+
+  return { logout, login, refresh, signup };
 };
 
 export default useAuth;

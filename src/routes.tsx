@@ -2,8 +2,8 @@ import { lazy } from 'react';
 import AuthGuard from './layouts/AuthGuard';
 import AppLayout from './layouts/AppLayout';
 import Loadable from './components/Loadable';
-import authRoutes from './views/auth/AuthRoutes';
 
+const Auth = Loadable(lazy(() => import('./views/auth/Auth')));
 const Home = Loadable(lazy(() => import('./views/home/Home')));
 
 const routes = [
@@ -21,7 +21,7 @@ const routes = [
     ],
   },
 
-  ...authRoutes,
+  { path: '/auth', element: <Auth /> },
   { path: '*', element: <>not found</> },
 ];
 
