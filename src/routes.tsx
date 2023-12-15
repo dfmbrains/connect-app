@@ -14,6 +14,8 @@ const routes = [
         element: <AppLayout />,
         children: [
           { path: '/', element: <Home /> },
+          { path: '/create', element: <Home /> },
+          { path: '/favorite', element: <Home /> },
         ],
       },
     ],

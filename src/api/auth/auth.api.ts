@@ -1,16 +1,18 @@
-import {IAuthCredentials, ILogin} from "models/auth.models";
-import {instanceAuth} from "../index";
+import { IAuthCredentials, ILogin } from 'models/auth.models';
+import { instanceAuth } from '../index';
 
-const serviceEndpoint = "/api/identity";
+const serviceEndpoint = '/api/identity';
 
 export const authToken = async (body: ILogin): Promise<IAuthCredentials> => {
-   const response = await instanceAuth.post(`${serviceEndpoint}/login`, body);
-   return response.data;
+  const response = await instanceAuth.post(`${serviceEndpoint}/login`, body);
+  return response.data;
 };
 
 export const refreshToken = async (
   refreshToken: string,
 ): Promise<IAuthCredentials> => {
-   const response = await instanceAuth.post(`${serviceEndpoint}/refresh`, {refreshToken});
-   return response.data;
+  const response = await instanceAuth.post(`${serviceEndpoint}/refresh`, {
+    refreshToken,
+  });
+  return response.data;
 };

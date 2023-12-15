@@ -1,14 +1,14 @@
-import React from "react";
-import Header from "shared/Header";
-import {Outlet} from "react-router-dom";
+import React from 'react';
+import Header from 'shared/Header';
+import { Outlet } from 'react-router-dom';
 
 const AppLayout = () => {
-   return (
-     <>
-        <Header/>
-        <Outlet/>
-     </>
-   );
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  );
 };
 
 export default AppLayout;
