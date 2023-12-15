@@ -2,9 +2,9 @@
 export const COOKIES_AUTH_CREDENTIALS = 'auth_credentials';
 
 //utils
-export const setCookie = (name: string, value: string, seconds: number) => {
+export const setCookie = (name: string, value: string, hours: number) => {
   const expires = new Date();
-  expires.setTime(expires.getTime() + seconds * 1000);
+  expires.setTime(expires.getTime() + hours * 60 * 60 * 1000);
 
   document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
 };

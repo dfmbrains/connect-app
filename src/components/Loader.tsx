@@ -19,7 +19,7 @@ const StyledLoader = styled(FlexAlignCenter)(({ theme }) => ({
     bottom: 'auto',
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
-    color: theme.palette.success.main,
+    color: theme.palette.primary.main,
   },
 }));
 

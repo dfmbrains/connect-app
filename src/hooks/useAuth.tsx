@@ -1,19 +1,16 @@
 import { useSetRecoilState } from 'recoil';
 import { useSnackbar } from 'notistack';
 import { IAuthCredentials, ILogin } from 'models/auth.models';
-import { isAuthenticatedState } from 'store/auth.states';
-import {
-  COOKIES_AUTH_CREDENTIALS,
-  removeCookie,
-  setCookie,
-} from 'services/cookies.service';
-import { authToken, refreshToken } from 'api/auth/auth.api';
+import { authCredentialsState, isAuthenticatedState } from 'store/auth.states';
+import { COOKIES_AUTH_CREDENTIALS, removeCookie, setCookie } from 'services/cookies.service';
+import { authToken, refreshToken } from 'api/identity/auth.api';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import { IServerStatus } from 'models/server.models';
 
 const useAuth = () => {
   const setIsAuthenticated = useSetRecoilState(isAuthenticatedState);
+  const setCredentials = useSetRecoilState(authCredentialsState);
 
   const { enqueueSnackbar } = useSnackbar();
   const { state } = useLocation();
@@ -36,15 +33,17 @@ const useAuth = () => {
     setCookie(
       COOKIES_AUTH_CREDENTIALS,
       JSON.stringify(credentials),
-      credentials.expires_in,
+      credentials.expiresHours,
     );
     setIsAuthenticated(true);
+    setCredentials(credentials);
   };
 
   const logout = (variant?: 'success' | 'error'): void => {
     setIsAuthenticated(false);
     removeCookie(COOKIES_AUTH_CREDENTIALS);
 
+    console.log(variant);
     if (variant) {
       enqueueSnackbar(
         variant === 'success' ? 'Logged out' : 'Session expired',

@@ -3,13 +3,11 @@ import useAuth from 'hooks/useAuth';
 import { instance } from 'api';
 import { getCookiesCredentials } from '../services/auth.service';
 
-type InterceptorProps<T extends ReactElement> = {
-  children: T;
+type InterceptorProps = {
+  children: ReactElement;
 };
 
-const AxiosInterceptor: FC<InterceptorProps<ReactElement>> = ({
-  children,
-}: InterceptorProps<ReactElement>) => {
+const AxiosInterceptor: FC<InterceptorProps> = ({ children }) => {
   const { logout, refresh } = useAuth();
 
   useEffect(() => {
@@ -19,7 +17,7 @@ const AxiosInterceptor: FC<InterceptorProps<ReactElement>> = ({
         if (err?.response?.status === 401) {
           const credentials = getCookiesCredentials();
           if (credentials) {
-            await refresh(credentials.refresh_token);
+            await refresh(credentials.refreshToken);
           } else {
             logout('error');
           }

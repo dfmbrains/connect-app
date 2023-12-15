@@ -4,10 +4,7 @@ export interface ILogin {
 }
 
 export interface IAuthCredentials {
-  access_token: string;
-  token_type: string;
-  expires_in: number;
-  refresh_token: string;
-  '.issued': string;
-  '.expires': string;
+  accessToken: string;
+  refreshToken: string;
+  expiresHours: number;
 }

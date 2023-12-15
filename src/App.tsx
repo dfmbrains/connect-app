@@ -1,6 +1,5 @@
 import React from 'react';
 import AxiosInterceptor from './shared/AxiosInterceptor';
-import AuthProvider from './shared/AuthProvider';
 import PrefetchProvider from './shared/PrefetchProvider';
 import { useRoutes } from 'react-router-dom';
 import routes from './routes';
@@ -10,9 +9,7 @@ function App() {
 
   return (
     <AxiosInterceptor>
-      <AuthProvider>
-        <PrefetchProvider>{content}</PrefetchProvider>
-      </AuthProvider>
+      <PrefetchProvider>{content}</PrefetchProvider>
     </AxiosInterceptor>
   );
 }
