@@ -130,7 +130,8 @@ const Auth = () => {
           <FlexBox sx={{ alignItems: 'center', columnGap: '5px' }}>
             <Typography className="secondary" variant="body2">Problems logging in? </Typography>
             <Typography variant="body2">
-              <a className="primary" href="https://t.me/dfmbrains" target="_blank">Contact the administrator</a>
+              <a className="primary" href="https://t.me/dfmbrains" target="_blank" rel="noreferrer">
+                Contact the administrator</a>
             </Typography>
           </FlexBox>
 

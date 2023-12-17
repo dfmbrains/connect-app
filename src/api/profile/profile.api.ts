@@ -1,4 +1,3 @@
-import { IAuthCredentials } from 'models/auth.models';
 import { instance } from '../index';
 import { IProfile } from '../../models/profile.models';
 
