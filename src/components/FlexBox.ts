@@ -28,7 +28,6 @@ const FlexAlignCenter = styled(Box)(() => ({
 const FlexVerticalGap10 = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
   justifyContent: 'center',
   rowGap: '10px',
 }));

@@ -39,38 +39,41 @@ const Header = () => {
               </NavLink>
               <div />
               <div />
-
-              {isSearchActive && <TextField size="small" focused />}
             </FlexGap10>
 
             <FlexGap10>
+              {isSearchActive &&
+                <TextField disabled sx={{ minWidth: '60vw' }} fullWidth focused size="small"
+                           placeholder="Search user" />}
+
               <IconButton
-                onClick={() => setIsSearchActive(!isSearchActive)}
-                title="Search user"
                 size="small"
-                color="primary"
+                title="Search user"
+                color={isSearchActive ? 'primary' : 'default'}
+                onClick={() => setIsSearchActive(!isSearchActive)}
               >
                 <Icon className="icon">person_search</Icon>
               </IconButton>
+
               <NavLink to="/">
                 <IconButton title="Posts" size="small">
                   <Icon className="icon">home</Icon>
                 </IconButton>
               </NavLink>
-              <NavLink to="/create">
-                <IconButton title="Create post" size="small">
-                  <Icon className="icon">add_circle</Icon>
-                </IconButton>
-              </NavLink>
-              <NavLink to="/favorite">
-                <IconButton title="Notifications" size="small">
-                  <Icon className="icon">favorite</Icon>
-                </IconButton>
-              </NavLink>
+              {/*<NavLink to="/create">*/}
+              <IconButton disabled title="Create post" size="small">
+                <Icon className="icon">add_circle</Icon>
+              </IconButton>
+              {/*</NavLink>*/}
+              {/*<NavLink to="/favorite">*/}
+              <IconButton disabled title="Notifications" size="small">
+                <Icon className="icon">favorite</Icon>
+              </IconButton>
+              {/*</NavLink>*/}
 
               <div />
 
-              <IconButton>
+              <IconButton disabled>
                 <Avatar />
               </IconButton>
             </FlexGap10>

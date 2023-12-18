@@ -1,7 +1,7 @@
-import { CircularProgress } from '@mui/material';
 import { styled } from '@mui/system';
 import React from 'react';
 import { FlexAlignCenter } from './FlexBox';
+import { StyledCircularProgress } from './Components';
 
 const StyledLoader = styled(FlexAlignCenter)(({ theme }) => ({
   top: '0',
@@ -19,14 +19,13 @@ const StyledLoader = styled(FlexAlignCenter)(({ theme }) => ({
     bottom: 'auto',
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
-    color: theme.palette.primary.main,
   },
 }));
 
 const Loader = () => {
   return (
     <StyledLoader>
-      <CircularProgress className="circleProgress" />
+      <StyledCircularProgress className="circleProgress" />
     </StyledLoader>
   );
 };
