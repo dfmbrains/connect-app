@@ -135,7 +135,7 @@ const Auth = () => {
             </Typography>
           </FlexBox>
 
-          <Typography className="light" mt={1} variant="body2">ⓒ 马萨。</Typography>
+          <Typography className="light" mt={1} variant="body2">ⓒ 马萨, 萨法汉，伊特。</Typography>
         </div>
       </FormBox>
     </LoginBox>
